@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	   ">
+	<dubbo:application name="ws-demo" />
+
+	<dubbo:registry address="N/A" />
+
+
+	<!--<dubbo:reference id="accountService" interface="com.netease.haitao.account.service.AccountService" group="hzzhaolong" version="1.0"-->
+					 <!--url="dubbo://127.0.0.1:20880/com.netease.haitao.account.service.AccountService"-->
+				  <!--/>-->
+
+	<dubbo:reference id="accountService" interface="com.netease.haitao.account.service.AccountService" group="test15" version="1.0"
+					 url="dubbo://10.165.124.51:20881/com.netease.haitao.account.service.AccountService"
+				  />
+
+
+
+	<!--<dubbo:reference id="creditsService" interface="com.netease.haitao.credits.service.CreditsService" group="integration_test" version="1.0"-->
+					 <!--url="dubbo://10.165.124.15:20887/com.netease.haitao.credits.service.CreditsService"-->
+	<!--/>-->
+
+
+</beans>

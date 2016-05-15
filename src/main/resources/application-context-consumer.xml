@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	   ">
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="ws-demo" />
+
+	<!--
+	  "N/A”代表不能获取注册中心，注册中心服务的发布也是一个普通的dubbo服务的发布。
+	  如果没有配置这个属性它也会寻找注册中心，去通过注册中心发布，因为自己本身就是注册中心，直接对外发布服务，外部通过ip：port直接使用。
+	-->
+
+	<!--注意广播IP地址有范围224.0.0.0~239.255.255.255  -->
+	<dubbo:registry address="multicast://224.5.6.7:1234" />
+
+	<dubbo:reference id="helloService" interface="com.dubbo.demo.HelloService" version="1.0.0"/>
+</beans>

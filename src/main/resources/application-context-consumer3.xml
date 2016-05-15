@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	   ">
+	<dubbo:application name="ws-demo" />
+
+	<dubbo:registry address="zookeeper://10.165.124.205:2181?backup=10.165.124.206:2181,10.165.124.207:2181" />
+
+	<dubbo:reference id="userSignServiceFacade" interface="com.netease.haitao.credits.service.UserSignServiceFacade" group="hzzhaolong" version="1.0"
+
+				  />
+
+	<dubbo:reference id="ursServiceFacade" interface="com.netease.health.service.UrsServiceFacade" group="integration_test" version="1.0"  url="dubbo://10.165.124.15:20885/com.netease.health.service.UrsServiceFacade"
+			/>
+</beans>
